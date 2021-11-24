@@ -47,6 +47,12 @@ $(document).ready(function () {
     pageDots: false,
     wrapAround: true,
   });
+  $(".hero__slider-ctr  .--prev").on("click", function () {
+    $carousel.flickity("previous");
+  });
+  $(".hero__slider-ctr  .--next").on("click", function () {
+    $carousel.flickity("next");
+  });
   $(".hero__bottom-ctr .--prev").on("click", function () {
     $carousel.flickity("previous");
   });
