@@ -1,0 +1,41 @@
+// css navigator (Menu)
+.nav {
+  position: fixed;
+  top: var(--height-header);
+  left: 0;
+  background-color: $yellow-cl;
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
+  // opacity: 0;
+  // pointer-events: none;
+  transform: translateX(-100%);
+  @include transition($t);
+  .container {
+    height: 100%;
+  }
+  &__lists {
+    height: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    &-item {
+      .link {
+        text-transform: uppercase;
+        font-family: pth;
+        font-size: 3rem;
+        line-height: 3rem;
+        letter-spacing: 1.5px;
+        padding: 20px 0;
+        display: block;
+      }
+    }
+  }
+  &.active {
+    // opacity: 1;
+    // pointer-events: visible;
+    transform: translateX(0);
+    @include transition($t);
+  }
+}

@@ -1,0 +1,125 @@
+.detailpage {
+  .hero {
+    &__image {
+      width: 100%;
+      height: 0;
+      padding-bottom: 54.1%;
+      .flickity-viewport {
+        height: 100% !important;
+        padding-bottom: inherit;
+      }
+      .flickity-fullscreen-button {
+        display: none;
+      }
+      &.is-fullscreen {
+        height: 100% !important;
+        padding: 35px;
+      }
+      &-item {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        img {
+          @include mid;
+
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    &__heading {
+      padding-top: 53px;
+      padding-bottom: 29px;
+    }
+    &__bottom {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 35px;
+      padding-bottom: 75px;
+      .textbox {
+        .title {
+          font-family: pl;
+          letter-spacing: 2.8px;
+        }
+        .desc {
+          font-family: arial, sans-serif;
+        }
+        &.--description {
+          max-width: 320px;
+        }
+        &.--about {
+          min-width: 240px;
+          .desc {
+            span {
+              font-style: italic;
+            }
+          }
+        }
+      }
+    }
+    @include sm {
+      
+      &__bottom {
+        .textbox {
+          &.--about {
+            min-width: initial;
+          }
+        }
+      }
+    }
+    @include xs {
+      &__heading {
+        padding-top: 33px;
+        padding-bottom: 19px;
+        &-ctr {
+          .control {
+            &.--full-screen {
+              display: none;
+            }
+            &.--backtoall {
+              i {
+                margin-left: 10px;
+              }
+            }
+          }
+        }
+      }
+      &__bottom {
+        display: block;
+        padding-bottom: 33px;
+        .textbox {
+          .title {
+            margin-bottom: 6px;
+          }
+          &.--client {
+            margin: 36px 0;
+          }
+          &.--description {
+            max-width: initial;
+          }
+        }
+      }
+    }
+    @include xxs {
+      &__heading {
+        &-ctr {
+          .control {
+            &.--backtoall {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+      .container {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      &__heading,
+      &__bottom {
+        padding-right: calc(var(--gap) / 2);
+        padding-left: calc(var(--gap) / 2);
+      }
+    }
+  }
+}

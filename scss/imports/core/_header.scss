@@ -1,0 +1,162 @@
+// css header
+.header {
+  &__top {
+    height: var(--height-header);
+    background-color: $gray-bg-cl;
+    @include transition($t);
+    position: relative;
+
+    .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+    &-left {
+      opacity: 0;
+      pointer-events: none;
+      .logo {
+        cursor: pointer;
+        &.is-selected {
+          span {
+            &:nth-child(1) {
+              transform: rotate(45deg);
+              
+            }
+            &:nth-child(2) {
+              display: none;
+            }
+            &:nth-child(3) {
+              transform: rotate(-45deg);
+              margin-top: -2px;
+            }
+          }
+        }
+        span {
+          @include transition($t);
+          display: block;
+          height: 2px;
+          width: 25px;
+          background-color: $yellow-cl;
+          &:nth-child(2) {
+            margin: 6px 0;
+          }
+        }
+      }
+    }
+    &-logo {
+      transform: translateX(-50%);
+      position: absolute;
+      left: 50%;
+    }
+  }
+  &__nav {
+    &.active {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      @include transition($t);
+      background-color: $yellow-cl;
+      .header__nav-lists {
+        padding-top: 15px;
+        &::after {
+          display: none;
+        }
+      }
+    }
+    &-lists {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 35px;
+      padding-bottom: 15px;
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        background-color: $black-cl;
+      }
+      .item {
+        &-link {
+          font-family: psb;
+          font-size: 1.2rem;
+          line-height: 3rem;
+          text-transform: uppercase;
+          display: block;
+          @include transition($t);
+          position: relative;
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 100%;
+            background-color: $black-cl;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s;
+          }
+          &:hover {
+            &::after {
+              transform: scaleX(1);
+              transform-origin: left;
+
+              transition: transform 0.4s;
+            }
+          }
+        }
+      }
+    }
+    &-center {
+      display: flex;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      .item {
+        margin: 0 30px;
+      }
+    }
+  }
+  @include sm {
+    &__top {
+      &-logo {
+        a {
+          img {
+            display: block;
+          }
+        }
+      }
+      &-social {
+        a {
+          img {
+            display: block;
+          }
+        }
+      }
+      &.active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        @include transition($t);
+      }
+      &-left {
+        opacity: 1;
+        pointer-events: visible;
+        cursor: pointer;
+      }
+    }
+    &__nav {
+      display: none;
+    }
+  }
+}

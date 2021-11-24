@@ -1,0 +1,140 @@
+// css footer
+.footer {
+  &__top,
+  &__bottom {
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 0 20px;
+    }
+  }
+  &__top {
+    .container {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        background-color: $black-cl;
+      }
+      &.pd-55 {
+        padding-bottom: 13px;
+      }
+    }
+  }
+  &__bottom {
+    background-color: $yellow-cl;
+    .container {
+      padding-top: 10px;
+    }
+  }
+  &__left {
+    padding-left: 20px;
+    .heading {
+      &:first-child {
+        margin-bottom: 30px;
+      }
+    }
+  }
+  &__right {
+    padding-right: 20px;
+    .heading {
+      max-width: 240px;
+    }
+  }
+  .heading {
+    font-family: pr;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: $text-black-cl;
+  }
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0 20px;
+    .left,
+    .right {
+      label {
+        font-size: var(--body12-fs);
+        text-transform: capitalize;
+        font-family: pr;
+      }
+      input {
+        outline: none;
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid $black-cl;
+        width: 100%;
+        margin-bottom: 18px;
+      }
+      input[type="submit"] {
+        background: $black-cl;
+        border: 1px solid $black-cl;
+        color: $white-cl;
+        font-size: 1rem;
+        font-family: pb;
+        text-transform: uppercase;
+        padding: 7px 12px;
+        cursor: pointer;
+        display: block;
+        margin-left: auto;
+        width: fit-content;
+      }
+      textarea {
+        background: url(../img/line-textarea.png) center center no-repeat;
+        width: 100%;
+        padding-bottom: 21px;
+        outline: none;
+        resize: none;
+        line-height: 3rem;
+        font-size: 2rem;
+        border: none;
+        font-family: pr;
+        overflow: hidden;
+      }
+    }
+  }
+  &__backtotop {
+    text-align: center;
+    svg {
+      cursor: pointer;
+    }
+  }
+  @include xs {
+    text-align: center;
+    &__top {
+      .container {
+        grid-template-columns: 1fr;
+        &.pd-55 {
+          padding-bottom: 3px;
+        }
+      }
+    }
+    &__left {
+      padding-left: 0;
+      .heading {
+        margin-bottom: 0;
+        &:first-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    &__right {
+      display: none;
+    }
+    &__bottom {
+      background-color: $white-cl;
+      .container {
+        grid-template-columns: 1fr;
+        padding-top: 0;
+        margin-bottom: 30px;
+      }
+    }
+    &__backtotop {
+      background-color: $yellow-cl;
+    }
+  }
+}

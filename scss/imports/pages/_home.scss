@@ -1,0 +1,218 @@
+.homepage {
+  // CSS HOMEPAGE
+  .about {
+    &__textbox {
+      text-align: center;
+      .heading {
+        &.--h3 {
+          font-family: pl;
+          text-transform: uppercase;
+          letter-spacing: 2.8px;
+          margin-bottom: 16px;
+        }
+        &.--h2 {
+          font-family: pb;
+          letter-spacing: 9px;
+          text-transform: uppercase;
+          position: relative;
+          width: fit-content;
+          margin: 0 auto;
+          color: $gray-bg-cl;
+          &::after {
+            content: "";
+
+            left: 0;
+            background-color: $yellow-cl;
+            width: 100%;
+            height: 16px;
+            z-index: -1;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
+      .desc {
+        font-family: arial, sans-serif;
+        max-width: 756px;
+        margin: 0 auto;
+        letter-spacing: -0.3px;
+
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+    @include xxs {
+      &.pd-55 {
+        padding-top: 32px;
+        padding-bottom: 25px;
+      }
+      &__textbox {
+        .desc {
+          display: none;
+        }
+      }
+    }
+  }
+  .projects {
+    &__title {
+      padding-top: 40px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      margin-bottom: 10px;
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        height: 1px;
+        width: 320px;
+        background-color: $black-cl;
+      }
+      &-item {
+        .link {
+          text-transform: uppercase;
+          font-family: psb;
+          color: $text-gray-cl;
+          @include transition($t);
+          padding: 0 20px;
+          display: block;
+
+          &:hover {
+            color: $text-black-cl;
+            @include transition($t);
+          }
+          &.active {
+            color: $text-black-cl;
+          }
+        }
+      }
+    }
+    &__lists {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 0 20px;
+      &-item {
+        .thumb {
+          position: relative;
+          height: 0;
+          padding-bottom: 60.7%;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+        &:hover {
+          .content {
+            .heading {
+              &.title {
+                a {
+                  @include transition($t);
+                  color: $yellow-cl;
+                }
+              }
+            }
+          }
+        }
+        .content {
+          text-align: center;
+          padding-top: 28px;
+          padding-bottom: 60px;
+          .heading {
+            line-height: 2rem;
+            font-family: psb;
+            text-transform: capitalize;
+            span {
+              font-family: psb-i;
+            }
+            &.title {
+              font-family: pb;
+              text-transform: uppercase;
+              line-height: var(--h4-lh);
+              margin-bottom: 5px;
+              position: relative;
+              a {
+                @include transition($t);
+                color: $text-black-cl;
+              }
+
+              &:after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 0;
+                height: 3px;
+                width: 16px;
+                background-color: $yellow-cl;
+              }
+            }
+          }
+        }
+      }
+    }
+    &__bottom {
+      .container {
+        text-align: center;
+        .heading {
+          font-family: psb;
+          text-transform: uppercase;
+        }
+      }
+    }
+    @include sm {
+      &__lists {
+        grid-template-columns: repeat(2, 1fr);
+        &-item {
+          .content {
+            .heading {
+              &.title {
+                margin-bottom: 35px;
+                &::after {
+                  bottom: -50%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    @include xs {
+      &__lists {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+    @include xxs {
+      .container {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      &.mb-70 {
+        margin-bottom: 32px;
+      }
+      &__title {
+        display: none;
+      }
+      &__lists {
+        &-item {
+          .content {
+            padding-bottom: 45px;
+            .heading {
+            }
+          }
+        }
+      }
+      &__bottom {
+        margin-top: 22px;
+      }
+    }
+  }
+}
